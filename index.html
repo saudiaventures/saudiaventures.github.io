@@ -1,0 +1,1534 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NTG Ventures × SaudiaVentures</title>
+  <meta name="description" content="Co-company builders at the intersection of Saudi ambition and executable systems. German engineering depth, Saudi market access.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://framerusercontent.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <style>
+    @font-face {
+      font-family: "Roobert PRO";
+      src: url("https://framerusercontent.com/assets/bxqTqNOyLej3ZeVhDDOChsHtMs.woff2") format("woff2");
+      font-display: swap;
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    @font-face {
+      font-family: "Roobert PRO";
+      src: url("https://framerusercontent.com/assets/iv96GFzxGumNrZsRrQOMjOSpSY.woff2") format("woff2");
+      font-display: swap;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    :root {
+      --bg: #000;
+      --bg-soft: #080b10;
+      --panel: #0d1017;
+      --panel-2: #11151e;
+      --line: #363b49;
+      --line-soft: rgba(146, 170, 240, .22);
+      --text: #fff;
+      --text-soft: #c0c0c0;
+      --muted: #a1a4a7;
+      --dim: #63687f;
+      --accent: #97a9eb;
+      --accent-2: rgb(146, 170, 240);
+      --green: #e8ff9c;
+      --max: 1360px;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+      color-scheme: dark;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(151, 169, 235, .13), rgba(0, 0, 0, 0) 38rem),
+        linear-gradient(180deg, #000 0%, #05070b 38%, #000 100%);
+      color: var(--text);
+      font-family: "Roobert PRO", Inter, Arial, sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.8), rgba(0,0,0,.16) 45%, rgba(0,0,0,.45));
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-shell {
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      position: fixed;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      background: linear-gradient(180deg, rgba(0,0,0,.86), rgba(0,0,0,.38) 70%, rgba(0,0,0,0));
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar-inner {
+      width: min(100%, var(--max));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-size: 14px;
+      color: #e2e4e0;
+      white-space: nowrap;
+    }
+
+    .mark {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      flex: 0 0 20px;
+    }
+
+    .mark::before,
+    .mark::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(151,169,235,.78);
+      transform: rotate(45deg) scaleX(.54);
+      box-shadow: 0 0 18px rgba(151,169,235,.38);
+    }
+
+    .mark::after {
+      transform: rotate(-45deg) scaleX(.54);
+      border-color: rgba(232,255,156,.62);
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 0 16px;
+      border: 1px solid rgba(146,170,240,.5);
+      border-radius: 4px;
+      background: rgba(151,169,235,.07);
+      box-shadow: inset 0 0 24px rgba(151,169,235,.09), 0 0 32px rgba(151,169,235,.08);
+      color: #fff;
+      font-size: 13px;
+      white-space: nowrap;
+      transition: border-color .3s var(--ease), background .3s var(--ease), transform .3s var(--ease);
+    }
+
+    .cta:hover {
+      border-color: rgba(151,169,235,.9);
+      background: rgba(151,169,235,.13);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 84svh;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: 90px 32px 34px;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after,
+    .graphic-section::before,
+    .graphic-section::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 26vh;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .hero::before,
+    .graphic-section::before {
+      top: 0;
+      background: linear-gradient(180deg, #000 0%, rgba(0,0,0,.98) 28%, rgba(0,0,0,0) 100%);
+    }
+
+    .hero::after,
+    .graphic-section::after {
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.98) 70%, #000 100%);
+    }
+
+    #network {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transform: scale(1.12);
+      animation: heroGraph 2s var(--ease) .12s forwards;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 4;
+      width: min(100%, var(--max));
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .hero-top {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: start;
+      gap: 28px;
+      padding-top: 36px;
+      color: rgba(255,255,255,.48);
+      font-family: "Geist Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .hero-top span:nth-child(2) {
+      color: var(--accent);
+      text-align: center;
+    }
+
+    .hero-top span:last-child {
+      text-align: right;
+    }
+
+    .hero-main {
+      max-width: 980px;
+      margin: auto 0 0;
+      padding-bottom: 8vh;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      color: var(--accent);
+      font-family: "Geist Mono", monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(151,169,235,.55);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 920px;
+      color: #fff;
+      font-size: clamp(58px, 9vw, 132px);
+      font-weight: 400;
+      line-height: .88;
+      letter-spacing: 0;
+    }
+
+    .hero-subline {
+      max-width: 640px;
+      margin-top: 28px;
+      color: var(--text-soft);
+      font-size: clamp(18px, 2.2vw, 28px);
+      line-height: 1.22;
+    }
+
+    .hero-footer {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: end;
+      width: 100%;
+      color: var(--muted);
+      font-family: "Geist Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .scroll-cue {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      justify-self: end;
+      color: rgba(255,255,255,.54);
+    }
+
+    .scroll-cue::after {
+      content: "";
+      width: 1px;
+      height: 34px;
+      background: linear-gradient(180deg, var(--accent), rgba(151,169,235,0));
+      animation: pulseLine 1.8s ease-in-out infinite;
+    }
+
+    .section {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      padding: 136px 32px;
+    }
+
+    .section > .inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .section.has-ornament {
+      overflow: var(--overflow-clip-fallback, clip);
+    }
+
+    .hero + .section {
+      padding-top: 68px;
+    }
+
+    .section.compact {
+      padding-top: 84px;
+    }
+
+    .inner {
+      width: min(100%, var(--max));
+    }
+
+    .ornament {
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+      opacity: .42;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 0 20px rgba(151,169,235,.08));
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,1) 18%, rgba(0,0,0,1) 76%, rgba(0,0,0,0));
+    }
+
+    .ornament-svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .ornament-right {
+      right: max(-120px, -8vw);
+      top: 10%;
+      width: min(42vw, 620px);
+      height: 520px;
+    }
+
+    .ornament-left {
+      left: max(-140px, -10vw);
+      top: 8%;
+      width: min(40vw, 560px);
+      height: 500px;
+    }
+
+    .ornament-center {
+      left: 50%;
+      top: 50%;
+      width: min(72vw, 980px);
+      height: 420px;
+      transform: translate(-50%, -50%);
+      opacity: .3;
+    }
+
+    .hero-rail {
+      right: clamp(12px, 6vw, 110px);
+      bottom: 8%;
+      width: min(24vw, 310px);
+      height: 360px;
+      opacity: .34;
+    }
+
+    .clip-rail path,
+    .clip-rail line,
+    .clip-rail rect,
+    .masked-grid path,
+    .masked-grid line,
+    .masked-grid rect,
+    .masked-grid circle {
+      vector-effect: non-scaling-stroke;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+      gap: clamp(38px, 7vw, 108px);
+      align-items: start;
+    }
+
+    .section-label {
+      position: sticky;
+      top: 90px;
+      display: grid;
+      gap: 18px;
+      color: var(--dim);
+      font-family: "Geist Mono", monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .section-label::before {
+      content: attr(data-index);
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-soft);
+      border-radius: 50%;
+      color: var(--accent);
+      box-shadow: inset 0 0 18px rgba(151,169,235,.06);
+    }
+
+    .copy-stack {
+      display: grid;
+      gap: 26px;
+    }
+
+    .kicker {
+      color: var(--accent);
+      font-family: "Geist Mono", monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 1020px;
+      color: #fff;
+      font-size: clamp(40px, 5.8vw, 92px);
+      font-weight: 400;
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      color: #fff;
+      font-size: clamp(24px, 3vw, 42px);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    .lead {
+      max-width: 820px;
+      color: var(--text-soft);
+      font-size: clamp(18px, 2.1vw, 26px);
+      line-height: 1.35;
+    }
+
+    .body-copy {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .statement {
+      max-width: 1160px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .statement h2 {
+      margin: 0 auto;
+    }
+
+    .statement p {
+      max-width: 760px;
+      margin: 28px auto 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.55;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 48px;
+    }
+
+    .card,
+    .diagram-panel,
+    .contrast-card,
+    .market-item {
+      border: 1px solid rgba(54,59,73,.86);
+      background:
+        linear-gradient(180deg, rgba(151,169,235,.07), rgba(151,169,235,0) 42%),
+        rgba(8,11,16,.72);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
+    .card {
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px;
+      border-radius: 6px;
+    }
+
+    .card .value {
+      color: #fff;
+      font-size: clamp(34px, 4.8vw, 70px);
+      font-weight: 400;
+      line-height: .9;
+    }
+
+    .card .label,
+    .mono {
+      color: var(--muted);
+      font-family: "Geist Mono", monospace;
+      font-size: 11px;
+      line-height: 1.55;
+      text-transform: uppercase;
+    }
+
+    .card.accent {
+      border-color: rgba(146,170,240,.5);
+      box-shadow: inset 0 0 32px rgba(151,169,235,.06), 0 0 36px rgba(151,169,235,.08);
+    }
+
+    .contrast {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 48px;
+    }
+
+    .contrast-card {
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .contrast-card.good {
+      border-color: rgba(146,170,240,.62);
+      background:
+        radial-gradient(circle at 80% 10%, rgba(151,169,235,.22), transparent 30%),
+        rgba(8,11,16,.76);
+    }
+
+    .pipeline {
+      display: grid;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .pipe-row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
+      font-family: "Geist Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .pipe {
+      position: relative;
+      height: 8px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: rgba(255,255,255,.08);
+    }
+
+    .pipe span {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: var(--w);
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(151,169,235,.24), rgba(151,169,235,.92));
+      box-shadow: 0 0 24px rgba(151,169,235,.4);
+    }
+
+    .diagram {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 56px;
+      align-items: stretch;
+    }
+
+    .diagram-panel {
+      position: relative;
+      min-height: 280px;
+      padding: 24px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .diagram-panel::after {
+      content: "";
+      position: absolute;
+      inset: auto 24px 24px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(151,169,235,0), rgba(151,169,235,.8), rgba(151,169,235,0));
+    }
+
+    .node-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .node {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 48px;
+      padding: 0 14px;
+      border: 1px solid rgba(54,59,73,.82);
+      border-radius: 4px;
+      background: rgba(0,0,0,.28);
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .node::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      flex: 0 0 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(151,169,235,.78);
+    }
+
+    .shared-layer {
+      margin-top: 16px;
+      padding: 26px;
+      border: 1px solid rgba(146,170,240,.5);
+      border-radius: 6px;
+      background:
+        linear-gradient(90deg, rgba(151,169,235,.14), rgba(151,169,235,.04)),
+        rgba(0,0,0,.46);
+      box-shadow: 0 0 38px rgba(151,169,235,.08);
+    }
+
+    .shared-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .shared-grid span {
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 4px;
+      color: var(--text-soft);
+      font-family: "Geist Mono", monospace;
+      font-size: 11px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 48px;
+    }
+
+    .market-item {
+      min-height: 148px;
+      padding: 22px;
+      border-radius: 6px;
+    }
+
+    .market-item strong {
+      display: block;
+      margin-bottom: 18px;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 400;
+    }
+
+    .market-item span {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .category-frame {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+      gap: 16px;
+      align-items: stretch;
+      margin-top: 52px;
+    }
+
+    .category-main {
+      min-height: 390px;
+      padding: clamp(28px, 5vw, 58px);
+      border: 1px solid rgba(146,170,240,.5);
+      border-radius: 6px;
+      background:
+        radial-gradient(circle at 82% 12%, rgba(151,169,235,.24), transparent 28%),
+        linear-gradient(180deg, rgba(151,169,235,.08), rgba(0,0,0,.16)),
+        rgba(8,11,16,.8);
+    }
+
+    .category-main h3 {
+      max-width: 620px;
+      font-size: clamp(42px, 6vw, 88px);
+      line-height: .94;
+    }
+
+    .category-main .body-copy {
+      margin-top: 28px;
+      max-width: 560px;
+    }
+
+    .contrast-card .body-copy {
+      margin-top: 24px;
+    }
+
+    .category-side {
+      display: grid;
+      gap: 12px;
+    }
+
+    .fact {
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      padding: 24px;
+      border: 1px solid rgba(54,59,73,.86);
+      border-radius: 6px;
+      background: rgba(8,11,16,.76);
+      color: var(--text-soft);
+      font-size: 20px;
+      line-height: 1.25;
+    }
+
+    .final {
+      min-height: 92svh;
+      align-items: center;
+      text-align: center;
+    }
+
+    .final .inner {
+      display: grid;
+      justify-items: center;
+      gap: 32px;
+    }
+
+    .final h2 {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .final .lead {
+      margin: 0 auto;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: center;
+      padding: 32px;
+      color: rgba(255,255,255,.38);
+      font-family: "Geist Mono", monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .9s var(--ease), transform .9s var(--ease);
+      will-change: opacity, transform;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes heroGraph {
+      to {
+        opacity: .9;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pulseLine {
+      0%, 100% {
+        opacity: .35;
+        transform: scaleY(.62);
+      }
+      50% {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        padding-inline: 22px;
+      }
+
+      .section {
+        padding: 104px 22px;
+      }
+
+      .hero-top,
+      .section-grid,
+      .diagram,
+      .category-frame {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-top span,
+      .hero-top span:last-child,
+      .hero-top span:nth-child(2) {
+        text-align: left;
+      }
+
+      .hero-footer {
+        grid-template-columns: 1fr;
+      }
+
+      .scroll-cue {
+        justify-self: start;
+      }
+
+      .section-label {
+        position: relative;
+        top: 0;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+      }
+
+      .cards,
+      .market-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .shared-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ornament {
+        opacity: .26;
+      }
+
+      .ornament-right,
+      .ornament-left,
+      .ornament-center {
+        width: 78vw;
+        height: 360px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        height: 54px;
+        padding-inline: 16px;
+      }
+
+      .brand {
+        font-size: 12px;
+      }
+
+      .topbar .cta {
+        min-height: 32px;
+        padding-inline: 10px;
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: 92svh;
+        padding: 76px 18px 24px;
+      }
+
+      .hero-top {
+        gap: 10px;
+        padding-top: 12px;
+      }
+
+      .hero-main {
+        padding-bottom: 6vh;
+      }
+
+      .hero-subline {
+        margin-top: 22px;
+      }
+
+      .section {
+        padding: 84px 18px;
+      }
+
+      .section.compact {
+        padding-top: 62px;
+      }
+
+      .cards,
+      .contrast,
+      .market-grid,
+      .shared-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card,
+      .contrast-card,
+      .diagram-panel,
+      .market-item,
+      .category-main,
+      .fact {
+        border-radius: 5px;
+      }
+
+      .card {
+        min-height: 156px;
+      }
+
+      .contrast-card,
+      .diagram-panel,
+      .category-main {
+        min-height: 260px;
+      }
+
+      .pipe-row {
+        grid-template-columns: 74px 1fr;
+      }
+
+      .ornament {
+        opacity: .18;
+        transform: scale(.86);
+      }
+
+      .ornament-right {
+        right: -42vw;
+      }
+
+      .ornament-left {
+        left: -44vw;
+      }
+
+      .ornament-center {
+        width: 110vw;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      #network {
+        opacity: .72;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topbar" aria-label="Primary navigation">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="NTG Ventures × SaudiaVentures">
+        <span class="mark" aria-hidden="true"></span>
+        <span>NTG Ventures × SaudiaVentures</span>
+      </a>
+      <a class="cta" href="#contact">Get in Touch</a>
+    </div>
+  </nav>
+
+  <main id="top" class="site-shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <canvas id="network" aria-hidden="true"></canvas>
+      <div class="ornament hero-rail" aria-hidden="true">
+        <svg class="ornament-svg clip-rail" viewBox="0 0 260 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="heroRailClip">
+              <path d="M52 8H214V352H18V92L52 8Z"/>
+            </clipPath>
+            <linearGradient id="heroRailStroke" x1="0" x2="260" y1="0" y2="360" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#97A9EB" stop-opacity=".08"/>
+              <stop offset=".48" stop-color="#97A9EB" stop-opacity=".68"/>
+              <stop offset="1" stop-color="#E8FF9C" stop-opacity=".2"/>
+            </linearGradient>
+          </defs>
+          <g clip-path="url(#heroRailClip)" stroke="url(#heroRailStroke)" stroke-width="1">
+            <path d="M56 20V338M98 0V360M140 14V346M182 38V322M224 76V284"/>
+            <path d="M12 76H248M28 132H232M4 188H256M36 244H220M18 300H240"/>
+            <path d="M56 76L140 188L98 300M182 38L224 188L140 346"/>
+          </g>
+          <g fill="#E2E4E0" opacity=".72">
+            <circle cx="56" cy="76" r="2"/><circle cx="140" cy="188" r="2"/><circle cx="98" cy="300" r="2"/>
+            <circle cx="182" cy="38" r="2"/><circle cx="224" cy="188" r="2"/><circle cx="140" cy="346" r="2"/>
+          </g>
+        </svg>
+      </div>
+      <div class="hero-content">
+        <div class="hero-top reveal">
+          <span>German engineering</span>
+          <span>NTG × SaudiaVentures</span>
+          <span>Saudi market access</span>
+        </div>
+        <div class="hero-main reveal">
+          <div class="eyebrow">Co-company builder</div>
+          <h1 id="hero-title">Ambition Needs Architecture</h1>
+          <p class="hero-subline">We build venture systems for Saudi Arabia and the GCC.</p>
+        </div>
+        <div class="hero-footer reveal">
+          <span>Venture systems / Shared infrastructure / Execution discipline</span>
+          <span class="scroll-cue">Scroll</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="who">
+      <div class="inner section-grid">
+        <aside class="section-label reveal" data-index="01">Positioning</aside>
+        <div class="copy-stack reveal">
+          <span class="kicker">Co-company builder</span>
+          <h2 id="who">From concept to operating reality.</h2>
+          <p class="lead">NTG Ventures × SaudiaVentures is a co-company builder — shared technical, commercial, and operational infrastructure that turns a market opportunity into a working platform.</p>
+          <p class="body-copy">NTG Ventures brings the German engineering discipline and systems architecture. SaudiaVentures is the Saudi and GCC-facing platform. Together, we take a thesis from concept to operating reality.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact has-ornament" aria-labelledby="expansion">
+      <div class="ornament ornament-right" aria-hidden="true">
+        <svg class="ornament-svg masked-grid" viewBox="0 0 620 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <mask id="pipelineMask">
+              <rect width="620" height="520" fill="black"/>
+              <path d="M34 112C172 62 262 82 382 158C464 210 512 218 596 188" stroke="white" stroke-width="90" stroke-linecap="round"/>
+              <path d="M18 304C150 238 264 250 392 326C472 374 530 386 604 348" stroke="white" stroke-width="78" stroke-linecap="round" opacity=".8"/>
+            </mask>
+            <linearGradient id="pipelineStroke" x1="20" x2="600" y1="70" y2="420" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#97A9EB" stop-opacity=".1"/>
+              <stop offset=".52" stop-color="#97A9EB" stop-opacity=".72"/>
+              <stop offset="1" stop-color="#E8FF9C" stop-opacity=".22"/>
+            </linearGradient>
+          </defs>
+          <g mask="url(#pipelineMask)" stroke="url(#pipelineStroke)" stroke-width="1">
+            <path d="M20 92H600M20 132H600M20 172H600M20 292H600M20 332H600M20 372H600"/>
+            <path d="M76 40V468M152 40V468M228 40V468M304 40V468M380 40V468M456 40V468M532 40V468"/>
+            <path d="M34 112C172 62 262 82 382 158C464 210 512 218 596 188"/>
+            <path d="M18 304C150 238 264 250 392 326C472 374 530 386 604 348"/>
+          </g>
+          <g fill="#E2E4E0" opacity=".58">
+            <circle cx="172" cy="82" r="2"/><circle cx="382" cy="158" r="2"/><circle cx="512" cy="218" r="2"/>
+            <circle cx="150" cy="238" r="2"/><circle cx="392" cy="326" r="2"/><circle cx="530" cy="386" r="2"/>
+          </g>
+        </svg>
+      </div>
+      <div class="inner">
+        <div class="statement reveal">
+          <span class="kicker">Operating position</span>
+          <h2 id="expansion">Where execution quality is the only thing that matters.</h2>
+          <p>We build at the intersection of market thesis, technical architecture, data infrastructure, and commercial reality — in markets where execution quality is the only thing that matters.</p>
+        </div>
+        <div class="cards">
+          <article class="card reveal">
+            <span class="label">Decisioning and orchestration, not decoration</span>
+            <strong class="value">AI</strong>
+          </article>
+          <article class="card reveal">
+            <span class="label">Reusable infrastructure, not a reporting layer</span>
+            <strong class="value">Data</strong>
+          </article>
+          <article class="card reveal">
+            <span class="label">Designed for delivery, not a document</span>
+            <strong class="value">Strategy</strong>
+          </article>
+          <article class="card reveal accent">
+            <span class="label">The only thing that matters</span>
+            <strong class="value" style="font-size: clamp(28px, 3.6vw, 52px)">Execution</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section has-ornament" aria-labelledby="bottleneck">
+      <div class="ornament ornament-left" aria-hidden="true">
+        <svg class="ornament-svg clip-rail" viewBox="0 0 560 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="funnelClip">
+              <path d="M34 54H526L358 250L526 446H34L202 250L34 54Z"/>
+            </clipPath>
+            <linearGradient id="funnelStroke" x1="34" x2="526" y1="54" y2="446" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#97A9EB" stop-opacity=".08"/>
+              <stop offset=".5" stop-color="#97A9EB" stop-opacity=".62"/>
+              <stop offset="1" stop-color="#E8FF9C" stop-opacity=".18"/>
+            </linearGradient>
+          </defs>
+          <g clip-path="url(#funnelClip)" stroke="url(#funnelStroke)" stroke-width="1">
+            <path d="M30 86H530M30 126H530M30 166H530M30 250H530M30 334H530M30 374H530M30 414H530"/>
+            <path d="M74 54L280 250L74 446M486 54L280 250L486 446"/>
+            <path d="M130 54L280 250L130 446M430 54L280 250L430 446"/>
+            <path d="M202 54L280 250L202 446M358 54L280 250L358 446"/>
+          </g>
+          <g fill="#E2E4E0" opacity=".55">
+            <circle cx="74" cy="86" r="2"/><circle cx="202" cy="166" r="2"/><circle cx="280" cy="250" r="2"/>
+            <circle cx="358" cy="334" r="2"/><circle cx="486" cy="414" r="2"/>
+          </g>
+        </svg>
+      </div>
+      <div class="inner section-grid">
+        <aside class="section-label reveal" data-index="02">Market reality</aside>
+        <div class="copy-stack reveal">
+          <span class="kicker">Saudi Arabia is not short on capital, ambition, or urgency</span>
+          <h2 id="bottleneck">Vision is not enough. The bottleneck is execution.</h2>
+          <p class="lead">Ventures fail not because the idea is wrong, but because the system around it is incomplete.</p>
+          <div class="contrast">
+            <article class="contrast-card">
+              <div>
+                <span class="mono">Common pattern</span>
+                <h3>Idea Alone</h3>
+              </div>
+              <div class="pipeline" aria-label="Idea alone — system completeness">
+                <div class="pipe-row"><span>Product</span><div class="pipe"><span style="--w: 28%"></span></div></div>
+                <div class="pipe-row"><span>Data</span><div class="pipe"><span style="--w: 22%"></span></div></div>
+                <div class="pipe-row"><span>Model</span><div class="pipe"><span style="--w: 18%"></span></div></div>
+                <div class="pipe-row"><span>Scale</span><div class="pipe"><span style="--w: 14%"></span></div></div>
+              </div>
+              <p class="body-copy">The product is undefined, the data is unreliable, the operating model is missing, the architecture cannot scale.</p>
+            </article>
+            <article class="contrast-card good">
+              <div>
+                <span class="mono">Required architecture</span>
+                <h3>Full System</h3>
+              </div>
+              <div class="pipeline" aria-label="Complete system — system completeness">
+                <div class="pipe-row"><span>Product</span><div class="pipe"><span style="--w: 92%"></span></div></div>
+                <div class="pipe-row"><span>Data</span><div class="pipe"><span style="--w: 88%"></span></div></div>
+                <div class="pipe-row"><span>Model</span><div class="pipe"><span style="--w: 84%"></span></div></div>
+                <div class="pipe-row"><span>Scale</span><div class="pipe"><span style="--w: 90%"></span></div></div>
+              </div>
+              <p class="body-copy">Saudi Arabia is moving on capital formation, industrial transformation, digital adoption, and regulatory modernization at once. Execution quality determines who captures it.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section graphic-section has-ornament" aria-labelledby="structural">
+      <div class="ornament ornament-center" aria-hidden="true">
+        <svg class="ornament-svg masked-grid" viewBox="0 0 980 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <mask id="structureMask">
+              <rect width="980" height="420" fill="black"/>
+              <rect x="54" y="68" width="310" height="252" rx="4" fill="white" opacity=".9"/>
+              <rect x="616" y="68" width="310" height="252" rx="4" fill="white" opacity=".9"/>
+              <path d="M392 196H588" stroke="white" stroke-width="64" stroke-linecap="round"/>
+            </mask>
+          </defs>
+          <g mask="url(#structureMask)" stroke="#97A9EB" stroke-opacity=".36" stroke-width="1">
+            <path d="M72 110L184 82L334 150L238 290L72 248Z"/>
+            <path d="M118 284L208 130L330 272M86 162L338 222"/>
+            <path d="M650 112H892M650 176H892M650 240H892M650 304H892"/>
+            <path d="M692 82V332M770 82V332M848 82V332"/>
+            <path d="M392 196H588"/>
+          </g>
+          <g fill="#E2E4E0" opacity=".56">
+            <circle cx="72" cy="110" r="2"/><circle cx="184" cy="82" r="2"/><circle cx="334" cy="150" r="2"/><circle cx="238" cy="290" r="2"/>
+            <circle cx="692" cy="176" r="2"/><circle cx="770" cy="240" r="2"/><circle cx="848" cy="304" r="2"/>
+          </g>
+        </svg>
+      </div>
+      <div class="inner">
+        <div class="statement reveal">
+          <span class="kicker">Execution logic</span>
+          <h2 id="structural">From thesis to reality.</h2>
+          <p>We start with the friction point: where data fails, where trust breaks, where decision-making depends on incomplete information, where market demand exists before the system can serve it.</p>
+          <p>The output is not a presentation. It is a system that can be built, funded, operated, and improved.</p>
+        </div>
+        <div class="diagram">
+          <article class="diagram-panel reveal">
+            <span class="mono">Friction point</span>
+            <h3>Where systems break</h3>
+            <div class="node-list">
+              <div class="node">Data fails</div>
+              <div class="node">Trust breaks</div>
+              <div class="node">Demand outpaces the system</div>
+            </div>
+          </article>
+          <article class="diagram-panel reveal">
+            <span class="mono">Architecture response</span>
+            <h3>What gets built</h3>
+            <div class="node-list">
+              <div class="node">Captured, automated, governed</div>
+              <div class="node">Product logic + operating model</div>
+              <div class="node">Delivery roadmap + commercial structure</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section has-ornament" aria-labelledby="alignment">
+      <div class="ornament ornament-center" aria-hidden="true">
+        <svg class="ornament-svg clip-rail" viewBox="0 0 980 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="spineClip">
+              <rect x="60" y="58" width="860" height="304" rx="8"/>
+            </clipPath>
+          </defs>
+          <g clip-path="url(#spineClip)" stroke="#97A9EB" stroke-opacity=".34" stroke-width="1">
+            <path d="M112 124H390M590 124H868M112 210H868M112 296H390M590 296H868"/>
+            <path d="M390 124L490 210L390 296M590 124L490 210L590 296"/>
+            <path d="M490 66V354"/>
+            <rect x="126" y="94" width="218" height="60" rx="4"/>
+            <rect x="636" y="94" width="218" height="60" rx="4"/>
+            <rect x="308" y="180" width="364" height="60" rx="4"/>
+            <rect x="126" y="266" width="218" height="60" rx="4"/>
+            <rect x="636" y="266" width="218" height="60" rx="4"/>
+          </g>
+          <g fill="#E2E4E0" opacity=".58">
+            <circle cx="390" cy="124" r="2"/><circle cx="590" cy="124" r="2"/><circle cx="490" cy="210" r="2"/>
+            <circle cx="390" cy="296" r="2"/><circle cx="590" cy="296" r="2"/>
+          </g>
+        </svg>
+      </div>
+      <div class="inner">
+        <div class="statement reveal">
+          <span class="kicker">What we build</span>
+          <h2 id="alignment">Venture systems, not vertical bets.</h2>
+          <p>The common thread is not the sector. It is system design under real constraints. We act as co-company builders — bringing shared infrastructure to each venture we build with.</p>
+        </div>
+        <div class="diagram">
+          <article class="diagram-panel reveal">
+            <span class="mono">NTG Ventures</span>
+            <h3>Germany</h3>
+            <div class="node-list">
+              <div class="node">Engineering discipline</div>
+              <div class="node">Systems architecture</div>
+              <div class="node">Technical infrastructure</div>
+            </div>
+          </article>
+          <article class="diagram-panel reveal">
+            <span class="mono">SaudiaVentures</span>
+            <h3>Saudi Arabia + GCC</h3>
+            <div class="node-list">
+              <div class="node">Market access</div>
+              <div class="node">Regulatory navigation</div>
+              <div class="node">Commercial execution</div>
+            </div>
+          </article>
+        </div>
+        <div class="shared-layer reveal">
+          <span class="mono">Shared infrastructure layer</span>
+          <div class="shared-grid">
+            <span>Product architecture</span>
+            <span>Data infrastructure</span>
+            <span>Commercial structure</span>
+            <span>Execution discipline</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="gcc">
+      <div class="inner section-grid">
+        <aside class="section-label reveal" data-index="03">Proof points</aside>
+        <div class="copy-stack reveal">
+          <span class="kicker">Venture proof points</span>
+          <h2 id="gcc">Evidence, not claims.</h2>
+          <p class="lead">Nine systems built across different sectors. The common thread is not the sector — it is system design under real constraints.</p>
+          <div class="market-grid">
+            <div class="market-item"><strong>AI-Powered Automotive Consumer Finance</strong><span>Agentic decisioning and pricing infrastructure for automotive finance. Increases approval rates, optimizes loan terms, and controls loss and fraud exposure.</span></div>
+            <div class="market-item"><strong>Carbon and ESG Performance Management</strong><span>Audit-ready emissions management with AI-guided workflow orchestration. Accelerates compliance and delivers decision-grade ESG insight.</span></div>
+            <div class="market-item"><strong>Consent-Based Health Data Platform</strong><span>Privacy-by-design infrastructure enabling consented access, portability, and trusted exchange of patient records.</span></div>
+            <div class="market-item"><strong>XR Spatial Collaboration</strong><span>Enterprise spatial platform that accelerates training, enables remote expert support, and shortens decision cycles.</span></div>
+            <div class="market-item"><strong>Demand-to-Fulfillment Commerce Infrastructure</strong><span>AI-orchestrated commerce architecture that senses demand early, curates trusted supply, and activates fulfillment only where real intent exists.</span></div>
+            <div class="market-item"><strong>Trust-Driven Commerce and Fractional Participation</strong><span>Commerce platform that pools demand to improve pricing, stabilize supply, and share upside with buyers and funders.</span></div>
+            <div class="market-item"><strong>AI-Driven Data Marketplace</strong><span>Curated marketplace of AI-vetted datasets with stable variable definitions, built for safe reuse across analytics and automation.</span></div>
+            <div class="market-item"><strong>High-Frequency Futures Trading Infrastructure</strong><span>Low-latency execution infrastructure that converts quantitative strategy logic into automated market positions.</span></div>
+            <div class="market-item"><strong>Global Consumer Goods Intelligence</strong><span>Large-scale data acquisition, ingestion, normalization, and curation of consumer goods intelligence across international markets.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section has-ornament" aria-labelledby="strategy-infra">
+      <div class="ornament ornament-right" aria-hidden="true">
+        <svg class="ornament-svg masked-grid" viewBox="0 0 620 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <mask id="categoryMask">
+              <rect width="620" height="520" fill="black"/>
+              <circle cx="312" cy="254" r="202" fill="white"/>
+              <circle cx="312" cy="254" r="92" fill="black" opacity=".32"/>
+            </mask>
+          </defs>
+          <g mask="url(#categoryMask)" stroke="#97A9EB" stroke-opacity=".38" stroke-width="1">
+            <path d="M312 52V456M110 254H514M170 112L454 396M454 112L170 396"/>
+            <path d="M224 72L504 224L400 444L120 292Z"/>
+            <path d="M120 224L400 72L504 292L224 444Z"/>
+            <circle cx="312" cy="254" r="202"/>
+            <circle cx="312" cy="254" r="142"/>
+            <circle cx="312" cy="254" r="82"/>
+          </g>
+          <g fill="#E2E4E0" opacity=".6">
+            <circle cx="312" cy="52" r="2"/><circle cx="514" cy="254" r="2"/><circle cx="312" cy="456" r="2"/><circle cx="110" cy="254" r="2"/>
+            <circle cx="224" cy="72" r="2"/><circle cx="504" cy="224" r="2"/><circle cx="400" cy="444" r="2"/><circle cx="120" cy="292" r="2"/>
+          </g>
+        </svg>
+      </div>
+      <div class="inner">
+        <div class="statement reveal">
+          <span class="kicker">Final conversion</span>
+          <h2 id="strategy-infra">Strategy becomes infrastructure.</h2>
+          <p>From opportunity to architecture. From architecture to execution. From execution to operating reality.</p>
+        </div>
+        <div class="category-frame">
+          <article class="category-main reveal">
+            <span class="mono">Where it converges</span>
+            <h3>The point where strategy becomes infrastructure.</h3>
+            <p class="body-copy">NTG Ventures × SaudiaVentures build at the point where strategy becomes infrastructure — where market signals become products, data becomes operating leverage, and AI becomes workflow.</p>
+          </article>
+          <div class="category-side">
+            <div class="fact reveal">Market signals become products.</div>
+            <div class="fact reveal">Data becomes operating leverage.</div>
+            <div class="fact reveal">AI becomes workflow.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section final has-ornament" aria-labelledby="final-title">
+      <div class="ornament ornament-center" aria-hidden="true">
+        <svg class="ornament-svg clip-rail" viewBox="0 0 980 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="finalGlow" x1="130" x2="850" y1="110" y2="110" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#97A9EB" stop-opacity="0"/>
+              <stop offset=".5" stop-color="#97A9EB" stop-opacity=".7"/>
+              <stop offset="1" stop-color="#97A9EB" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M130 110H850" stroke="url(#finalGlow)" stroke-width="1"/>
+          <path d="M490 50V170" stroke="#97A9EB" stroke-opacity=".25"/>
+          <circle cx="490" cy="110" r="4" fill="#E2E4E0" fill-opacity=".55"/>
+        </svg>
+      </div>
+      <div class="inner reveal">
+        <span class="kicker">Contact us</span>
+        <h2 id="final-title">Germany to Riyadh. Two platforms. One operating link.</h2>
+        <div class="diagram" style="margin-top: 40px; text-align: left">
+          <article class="diagram-panel">
+            <span class="mono">NTG Ventures — Germany</span>
+            <h3 style="font-size: clamp(20px, 2.4vw, 28px)">Hamburg</h3>
+            <p class="body-copy" style="margin-top: 18px">
+              Poststraße 33<br>
+              20354 Hamburg, Germany<br>
+              Phone: +49 40 0000 0000
+            </p>
+          </article>
+          <article class="diagram-panel">
+            <span class="mono">SaudiaVentures — Riyadh</span>
+            <h3 style="font-size: clamp(20px, 2.4vw, 28px)">Riyadh</h3>
+            <p class="body-copy" style="margin-top: 18px">
+              The Garage / KACST Startup Hub<br>
+              Riyadh, Saudi Arabia<br>
+              Phone: +966 11 000 0000
+            </p>
+          </article>
+        </div>
+        <a class="cta" style="margin-top: 36px" href="https://www.linkedin.com/company/nada-technologies-group/" target="_blank" rel="noopener noreferrer">Get in Touch</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" style="flex-direction: column; gap: 8px; text-align: center">
+    <span>NTG Ventures × SaudiaVentures / © 2026</span>
+    <span>Nada Technologies UG (haftungsbeschränkt)</span>
+    <span>Poststraße 33, 20354 Hamburg, Germany</span>
+    <span>Geschäftsführer: Karim Ahmed</span>
+    <span>Amtsgericht Hamburg · HRB 143470</span>
+  </footer>
+
+  <script>
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16, rootMargin: "0px 0px -8% 0px" });
+
+    document.querySelectorAll(".reveal").forEach((el, index) => {
+      el.style.transitionDelay = reduceMotion ? "0ms" : `${Math.min(index % 5, 4) * 70}ms`;
+      revealObserver.observe(el);
+    });
+
+    const canvas = document.getElementById("network");
+    const ctx = canvas.getContext("2d");
+    let width = 0;
+    let height = 0;
+    let points = [];
+    let raf = 0;
+
+    function resizeCanvas() {
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      width = canvas.clientWidth;
+      height = canvas.clientHeight;
+      canvas.width = Math.floor(width * ratio);
+      canvas.height = Math.floor(height * ratio);
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+      const count = Math.max(42, Math.min(96, Math.floor(width / 17)));
+      points = Array.from({ length: count }, (_, index) => {
+        const band = index / count;
+        return {
+          x: Math.random() * width,
+          y: height * (.14 + Math.random() * .72),
+          vx: (Math.random() - .5) * .18,
+          vy: (Math.random() - .5) * .12,
+          r: Math.random() * 1.8 + .7,
+          band
+        };
+      });
+    }
+
+    function drawNetwork(time) {
+      ctx.clearRect(0, 0, width, height);
+      const gradient = ctx.createRadialGradient(width * .52, height * .45, 0, width * .52, height * .45, Math.max(width, height) * .62);
+      gradient.addColorStop(0, "rgba(151,169,235,.16)");
+      gradient.addColorStop(.45, "rgba(8,11,16,.24)");
+      gradient.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+
+      points.forEach((p) => {
+        if (!reduceMotion) {
+          p.x += p.vx + Math.sin(time * .00035 + p.band * 6) * .045;
+          p.y += p.vy + Math.cos(time * .0003 + p.band * 7) * .035;
+        }
+
+        if (p.x < -20) p.x = width + 20;
+        if (p.x > width + 20) p.x = -20;
+        if (p.y < height * .08) p.y = height * .86;
+        if (p.y > height * .9) p.y = height * .1;
+      });
+
+      for (let i = 0; i < points.length; i++) {
+        for (let j = i + 1; j < points.length; j++) {
+          const a = points[i];
+          const b = points[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const maxDist = width < 700 ? 116 : 168;
+          if (dist < maxDist) {
+            const opacity = (1 - dist / maxDist) * .26;
+            ctx.strokeStyle = `rgba(151,169,235,${opacity})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      points.forEach((p) => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(226,228,224,.74)";
+        ctx.fill();
+      });
+
+      if (!reduceMotion) {
+        raf = requestAnimationFrame(drawNetwork);
+      }
+    }
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas, { passive: true });
+    raf = requestAnimationFrame(drawNetwork);
+
+    if (reduceMotion) {
+      cancelAnimationFrame(raf);
+      drawNetwork(0);
+    }
+  </script>
+</body>
+</html>
